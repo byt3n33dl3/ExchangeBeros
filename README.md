@@ -1,14 +1,14 @@
-# targetedKerberoast
+# ExchangeBeros
 
-targetedKerberoast is a Python script that can, like many others (e.g. [GetUserSPNs.py](https://github.com/SecureAuthCorp/impacket/blob/master/examples/GetUserSPNs.py)), print "kerberoast" hashes for user accounts that have a SPN set. 
-This tool brings the following additional feature: for each user without SPNs, it tries to set one (abuse of a write permission on the `servicePrincipalName` attribute), print the "kerberoast" hash, and delete the temporary SPN set for that operation. This is called targeted Kerberoasting.
+ExchangeBeros is a Python script that can, like many others (e.g. [SPNExec.py](https://github.com/SecureAuthCorp/impacket/blob/master/examples/GetUserSPNs.py)), print "kerberoast" hashes for user accounts that have a SPN set. 
+This tool brings the following additional feature: for each user without SPNs, it tries to set one (abuse of a write permission on the `SPN` attribute), print the "kerberoast" hash, and delete the temporary SPN set for that operation. This is called targeted Kerberoasting.
 This tool can be used against all users of a domain, or supplied in a list, or one user supplied in the CLI.
 
 More information about this attack
  - [The Hacker Recipes - Kerberoast](https://www.thehacker.recipes/ad/movement/kerberos/kerberoast)
  - [The Hacker Recipes - Targeted Kerberoasting](https://www.thehacker.recipes/ad/movement/access-controls/targeted-kerberoasting)
 
-# Usage
+## Usage
 
 This tool supports the following authentications
  - (NTLM) Cleartext password
@@ -17,10 +17,10 @@ This tool supports the following authentications
  - (Kerberos) [Pass-the-key](https://www.thehacker.recipes/ad/movement/kerberos/ptk) / [Overpass-the-hash](https://www.thehacker.recipes/ad/movement/kerberos/opth)
  - (Kerberos) [Pass-the-cache](https://www.thehacker.recipes/ad/movement/kerberos/ptc) (type of [Pass-the-ticket](https://www.thehacker.recipes/ad/movement/kerberos/ptt))
 
-Among other things, targetedKerberoast supports multi-level verbosity, just append `-v`, `-vv`, ... to the command :)
+Among other things, ExchangeBeros supports multi-level verbosity, just append `-v`, `-vv`, ... to the command :)
 
-```
-usage: targetedKerberoast.py [-h] [-v] [-q] [-D TARGET_DOMAIN] [-U USERS_FILE] [--request-user username] [-o OUTPUT_FILE] [--use-ldaps] [--only-abuse] [--no-abuse] [--dc-ip ip address] [-d DOMAIN] [-u USER]
+```python
+usage: exchangeberos.py [-h] [-v] [-q] [-D TARGET_DOMAIN] [-U USERS_FILE] [--request-user username] [-o OUTPUT_FILE] [--use-ldaps] [--only-abuse] [--no-abuse] [--dc-ip ip address] [-d DOMAIN] [-u USER]
                              [-k] [--no-pass | -p PASSWORD | -H [LMHASH:]NTHASH | --aes-key hex key]
 
 Queries target domain for SPNs that are running under a user account and operate targeted Kerberoasting
@@ -58,10 +58,6 @@ secrets:
   --aes-key hex key     AES key to use for Kerberos Authentication (128 or 256 bits)
 ```
 
-Below is an example what the tool can do.
-
-![](./.assets/example.png)
-
-# Credits and references
+# Credits
 
 Credits to the whole team behind [Impacket](https://github.com/SecureAuthCorp/impacket/) and its contributors.
