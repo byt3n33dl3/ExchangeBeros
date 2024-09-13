@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
-# File name          : targetedKerberoast.py
-# Author             : Shutdown (@_nwodtuhs)
-# Date created       : 2 Aug 2021
+# File name          : exchangeberos.py
+# Author             : Shutdown (@_nwodtuhs) & Sulaiman (@pxcs)
+# Date created       : 2 Aug 2021 - 13 Sep 2024
 
 import argparse, sys
 import os
